@@ -28,6 +28,8 @@
     .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
     .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 20px; letter-spacing: 0.5px; }
     .brand .ball { font-size: 26px; }
+    .brand-logo { width: 30px; height: 30px; border-radius: 7px; vertical-align: middle; }
+    .hero-logo { width: 92px; height: 92px; border-radius: 21px; margin-bottom: 6px; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.55)); }
     .nav-links a { color: var(--text); margin-left: 24px; font-weight: 600; font-size: 14px; }
     .nav-links a:hover { color: var(--gold); }
 
@@ -69,10 +71,9 @@
 <body>
   <header>
     <div class="wrap nav">
-      <div class="brand"><span class="ball">🏈</span> FLGVRSE</div>
+      <div class="brand"><img src="logo-mark.png" class="brand-logo" alt="FLGVRSE logo" /> FLGVRSE</div>
       <nav class="nav-links">
         <a href="#features">Features</a>
-        <a href="#demo">See it</a>
         <a href="#get">Join the beta</a>
       </nav>
     </div>
@@ -81,7 +82,7 @@
   <!-- HERO -->
   <div class="hero">
     <div class="wrap">
-      <div class="ball">🏈</div>
+      <img src="logo-mark.png" class="hero-logo" alt="FLGVRSE logo" />
       <h1>FLGVRSE</h1>
       <p class="tag">The flag football community — all in one place.</p>
       <p class="beta-badge">🚧 Now in beta — be one of the first to play</p>
@@ -111,21 +112,6 @@
         <div class="card"><div class="emoji">🎬</div><h3>Media pros</h3><p>Discover photographers and videographers who shoot flag football, with ratings and direct contact.</p></div>
         <div class="card"><div class="emoji">🛍️</div><h3>Merch &amp; gear</h3><p>Jerseys, flags, belts, and apparel from brands across the flag football world.</p></div>
         <div class="card"><div class="emoji">💬</div><h3>Community</h3><p>Forum, direct messages, and group chats — plus podcasts, all built for flag players. No ads, ever.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TEST DRIVE -->
-  <section class="demo" id="demo">
-    <div class="wrap">
-      <h2 class="section-title">See it in action</h2>
-      <p class="section-sub">Take a quick tour before you download — here's FLGVRSE in motion.</p>
-      <div class="demo-box">
-        <!-- TODO: replace this box with a demo video embed, e.g.:
-             <video controls poster="poster.jpg" style="width:100%;border-radius:14px"><source src="flag-nation-demo.mp4" type="video/mp4"></video>
-             or a YouTube <iframe>. -->
-        <div class="play">🎬</div>
-        <div>Demo walkthrough coming soon — grab the beta above to see it live.</div>
       </div>
     </div>
   </section>
