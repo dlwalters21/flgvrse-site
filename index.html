@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FLGVRSE — Connecting the whole flag football world in one place</title>
+  <meta name="description" content="FLGVRSE is the home of flag football: find leagues & tournaments near you on a worldwide map, design and animate plays, discover media pros, merch, and podcasts, and connect with the community. Ad-free." />
+  <meta name="keywords" content="flag football, flag football leagues, flag football tournaments, 7v7, tochito, play designer, NFL Flag" />
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="FLGVRSE — Connecting the whole flag football world in one place" />
+  <meta property="og:description" content="Find leagues & tournaments worldwide, design plays, and connect with the flag football community." />
+  <meta property="og:type" content="website" />
+  <!-- <meta property="og:image" content="https://YOURDOMAIN/og-image.png" /> TODO: add a 1200x630 preview image -->
+  <meta name="theme-color" content="#0d0d0d" />
+  <style>
+    :root { --gold:#e6c155; --gold-deep:#b8860b; --ink:#0d0d0d; --charcoal:#161616; --tile:#1c1c1c; --edge:rgba(230,193,85,0.35); --muted:#9a9a9a; --text:#f3f3f3; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--ink); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: var(--gold); text-decoration: none; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
+    .btn { display: inline-block; padding: 14px 26px; border-radius: 12px; font-weight: 800; font-size: 15px; }
+    .btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: #1a1408; }
+    .btn-ghost { border: 1.5px solid var(--edge); color: var(--gold); }
+
+    /* Header */
+    header { position: sticky; top: 0; z-index: 10; background: rgba(13,13,13,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid #222; }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 20px; letter-spacing: 0.5px; }
+    .brand .ball { font-size: 26px; }
+    .nav-links a { color: var(--text); margin-left: 24px; font-weight: 600; font-size: 14px; }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* Hero */
+    .hero { text-align: center; padding: 90px 0 70px; background: radial-gradient(1200px 500px at 50% -10%, rgba(230,193,85,0.12), transparent 60%); }
+    .hero .ball { font-size: 70px; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5)); }
+    .hero h1 { font-size: clamp(40px, 7vw, 68px); font-weight: 900; letter-spacing: 0.5px; margin: 14px 0 6px; background: linear-gradient(135deg, #fff 30%, var(--gold)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero .tag { font-size: clamp(17px, 2.5vw, 22px); color: var(--muted); margin-bottom: 18px; }
+    .beta-badge { display: inline-block; background: rgba(230,193,85,0.12); border: 1px solid var(--edge); color: var(--gold); font-weight: 700; font-size: 13px; padding: 7px 16px; border-radius: 999px; margin-bottom: 26px; }
+    .beta-note { font-size: 13px; color: var(--muted); margin-top: 16px; }
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* Stats */
+    .stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 54px; }
+    .stat { background: var(--tile); border: 1px solid var(--edge); border-radius: 16px; padding: 18px 26px; min-width: 150px; }
+    .stat .num { font-size: 30px; font-weight: 900; color: var(--gold); }
+    .stat .lbl { font-size: 13px; color: var(--muted); }
+
+    /* Sections */
+    section { padding: 70px 0; }
+    .section-title { text-align: center; font-size: clamp(26px, 4vw, 36px); font-weight: 900; margin-bottom: 10px; }
+    .section-sub { text-align: center; color: var(--muted); max-width: 620px; margin: 0 auto 44px; }
+
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .card { background: var(--tile); border: 1px solid var(--edge); border-radius: 18px; padding: 26px; box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+    .card .emoji { font-size: 38px; }
+    .card h3 { font-size: 19px; font-weight: 800; margin: 12px 0 8px; }
+    .card p { color: var(--muted); font-size: 14.5px; }
+
+    /* Test drive */
+    .demo { background: linear-gradient(180deg, #111, #0d0d0d); border-top: 1px solid #222; border-bottom: 1px solid #222; }
+    .demo-box { background: var(--charcoal); border: 1px dashed var(--edge); border-radius: 18px; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; color: var(--muted); text-align: center; padding: 20px; }
+    .demo-box .play { font-size: 54px; }
+
+    footer { padding: 40px 0; text-align: center; color: var(--muted); font-size: 13px; border-top: 1px solid #222; }
+    footer .founder { opacity: 0.5; font-size: 12px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><span class="ball">🏈</span> FLGVRSE</div>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#demo">See it</a>
+        <a href="#get">Join the beta</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="ball">🏈</div>
+      <h1>FLGVRSE</h1>
+      <p class="tag">The flag football community — all in one place.</p>
+      <p class="beta-badge">🚧 Now in beta — be one of the first to play</p>
+      <div class="cta-row" id="get">
+        <a class="btn btn-gold" href="https://testflight.apple.com/join/sAKEvhhq" target="_blank" rel="noopener">📱 Join the iPhone Beta</a>
+        <a class="btn btn-ghost" href="https://expo.dev/accounts/dlwalters21/projects/flgvrse/builds/4f582cb5-abea-416a-a0f0-4d812f3f025f" target="_blank" rel="noopener">🤖 Join the Android Beta</a>
+      </div>
+      <p class="beta-note">Already testing? <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9tvD7WlnsF2wi-3f8zefq4K_Hq5OYIVYTtBsGGgrbvrJb7Q/viewform" target="_blank" rel="noopener">Share your feedback →</a></p>
+      <div class="stats">
+        <div class="stat"><div class="num">1,500+</div><div class="lbl">Leagues &amp; tournaments</div></div>
+        <div class="stat"><div class="num">88</div><div class="lbl">Countries</div></div>
+        <div class="stat"><div class="num">530+</div><div class="lbl">Media pros</div></div>
+        <div class="stat"><div class="num">100%</div><div class="lbl">Ad-free</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="wrap">
+      <h2 class="section-title">Everything flag football, in your pocket</h2>
+      <p class="section-sub">Find where to play, level up your game, and connect with players, organizers, and creators worldwide.</p>
+      <div class="features">
+        <div class="card"><div class="emoji">🗺️</div><h3>Find your game</h3><p>A worldwide map of leagues and tournaments — filter by type and date, and find flag football near you in 88 countries.</p></div>
+        <div class="card"><div class="emoji">✏️</div><h3>Play Designer</h3><p>Draw routes, set coverages, and watch your play come to life — animate the routes, the ball, and the defenders, then share it.</p></div>
+        <div class="card"><div class="emoji">🔴</div><h3>Live Now</h3><p>See which leagues and tournaments are streaming right now and jump straight to the action.</p></div>
+        <div class="card"><div class="emoji">🎬</div><h3>Media pros</h3><p>Discover photographers and videographers who shoot flag football, with ratings and direct contact.</p></div>
+        <div class="card"><div class="emoji">🛍️</div><h3>Merch &amp; gear</h3><p>Jerseys, flags, belts, and apparel from brands across the flag football world.</p></div>
+        <div class="card"><div class="emoji">💬</div><h3>Community</h3><p>Forum, direct messages, and group chats — plus podcasts, all built for flag players. No ads, ever.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEST DRIVE -->
+  <section class="demo" id="demo">
+    <div class="wrap">
+      <h2 class="section-title">See it in action</h2>
+      <p class="section-sub">Take a quick tour before you download — here's FLGVRSE in motion.</p>
+      <div class="demo-box">
+        <!-- TODO: replace this box with a demo video embed, e.g.:
+             <video controls poster="poster.jpg" style="width:100%;border-radius:14px"><source src="flag-nation-demo.mp4" type="video/mp4"></video>
+             or a YouTube <iframe>. -->
+        <div class="play">🎬</div>
+        <div>Demo walkthrough coming soon — grab the beta above to see it live.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section style="text-align:center;">
+    <div class="wrap">
+      <h2 class="section-title">Be part of the beta</h2>
+      <p class="section-sub">Free, ad-free, and built by flag players for flag players. Help shape it before launch.</p>
+      <div class="cta-row">
+        <a class="btn btn-gold" href="https://testflight.apple.com/join/sAKEvhhq" target="_blank" rel="noopener">📱 Join the iPhone Beta</a>
+        <a class="btn btn-ghost" href="https://expo.dev/accounts/dlwalters21/projects/flgvrse/builds/4f582cb5-abea-416a-a0f0-4d812f3f025f" target="_blank" rel="noopener">🤖 Join the Android Beta</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      &copy; <span id="yr"></span> FLGVRSE. The flag football community.
+      <div class="founder">Originally created by Darius Walters.</div>
+    </div>
+  </footer>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
